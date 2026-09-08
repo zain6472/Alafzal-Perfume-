@@ -1,27 +1,30 @@
-import { notFound } from "next/navigation";
+// app/product/[slug]/page.js
+import { PRODUCTS } from "@/lib/data";
 import ProductDetail from "@/components/ProductDetail";
-import { PRODUCTS, getProductBySlug } from "@/lib/data";
+import { notFound } from "next/navigation";
 
-export function generateStaticParams() {
-  return PRODUCTS.map((p) => ({ slug: p.slug }));
+export async function generateStaticParams() {
+  return PRODUCTS.map((product) => ({
+    slug: product.slug,
+  }));
 }
 
-export function generateMetadata({ params }) {
-  const product = getProductBySlug(params.slug);
-  if (!product) return { title: "Fragrance Not Found | Al Afzal Perfume Collection" };
+export async function generateMetadata({ params }) {
+  const product = PRODUCTS.find((p) => p.slug === params.slug);
+  if (!product) return {};
+
   return {
-    title: `${product.name} | Al Afzal Perfume Collection`,
+    title: `${product.name} | Al Afzal Perfumes`,
     description: product.description,
-    openGraph: {
-      title: `${product.name} | Al Afzal Perfume Collection`,
-      description: product.description,
-      type: "website",
-    },
   };
 }
 
 export default function ProductPage({ params }) {
-  const product = getProductBySlug(params.slug);
-  if (!product) return notFound();
+  const product = PRODUCTS.find((p) => p.slug === params.slug);
+
+  if (!product) {
+    notFound();
+  }
+
   return <ProductDetail product={product} />;
 }
