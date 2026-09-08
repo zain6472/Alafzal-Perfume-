@@ -23,13 +23,13 @@ export const PRODUCTS = [
     slug: "wanted-x",
     name: "Wanted X",
     category: "woody",
-    price: 3500, // Updated real price placeholder
+    price: 3500,
     originalPrice: 4200,
     rating: 4.9,
     reviewsCount: 128,
     isBestSeller: true,
     isNew: false,
-    image: "/brand/wanted-x.jpg", // Real photo path[cite: 7]
+    image: "/brand/wanted-x.jpeg",
     shortDescription: "A bold, captivating fragrance designed for modern elegance and lasting impact.",
     description: "Wanted X combines deep woody notes with a refined spicy undertone, crafted for those who demand distinction and sophistication in every room they enter.",
     notes: {
@@ -51,7 +51,7 @@ export const PRODUCTS = [
     reviewsCount: 94,
     isBestSeller: true,
     isNew: false,
-    image: "/brand/royal-y.jpg",[cite: 7]
+    image: "/brand/royal-y.jpeg",
     shortDescription: "Majestic oriental notes woven with rich amber and rare spices.",
     description: "Royal Y embodies opulence. With warm amber and exotic woods, it delivers an unforgettable trail of luxury fit for royalty.",
     notes: {
@@ -73,7 +73,7 @@ export const PRODUCTS = [
     reviewsCount: 67,
     isBestSeller: false,
     isNew: true,
-    image: "/brand/bloom-aura.jpg",[cite: 7]
+    image: "/brand/bloom-aura.jpeg",
     shortDescription: "A vibrant floral bouquet radiating warmth, sweetness, and grace.",
     description: "Bloom Aura opens with fresh blossom petals and settles into a creamy vanilla finish, perfect for romantic evenings and bright sunny days.",
     notes: {
@@ -95,7 +95,7 @@ export const PRODUCTS = [
     reviewsCount: 112,
     isBestSeller: true,
     isNew: false,
-    image: "/brand/royal-amber.jpg",[cite: 7]
+    image: "/brand/royal-amber.jpeg",
     shortDescription: "Deep golden amber blended with precious woods and sweet resinous notes.",
     description: "An intense, comforting fragrance celebrating golden amber, velvety vanilla, and smoky woods for an unforgettable signature scent.",
     notes: {
@@ -117,7 +117,7 @@ export const PRODUCTS = [
     reviewsCount: 45,
     isBestSeller: false,
     isNew: false,
-    image: "/brand/urban-legend.jpg", // Ensure photo is placed in public/brand/[cite: 7]
+    image: "/brand/urban-legend.jpeg",
     shortDescription: "Crisp citrus combined with marine breeze and dynamic woody tones.",
     description: "Designed for the active lifestyle, Urban Legend offers instant freshness that evolves into a confident, clean masculine base.",
     notes: {
@@ -139,7 +139,7 @@ export const PRODUCTS = [
     reviewsCount: 53,
     isBestSeller: false,
     isNew: true,
-    image: "/brand/velvet-rush.jpg",[cite: 7]
+    image: "/brand/velvet-rush.jpeg",
     shortDescription: "Smooth, velvety gourmand notes touching rich floral accords.",
     description: "Velvet Rush is a seductive blend of dark berry accents, lush florals, and warm praline, creating a soft yet undeniable presence.",
     notes: {
@@ -161,7 +161,7 @@ export const PRODUCTS = [
     reviewsCount: 39,
     isBestSeller: false,
     isNew: false,
-    image: "/brand/crystal-bloom.jpg",[cite: 7]
+    image: "/brand/crystal-bloom.jpeg",
     shortDescription: "Pure, luminous freshness with sparkling citrus and delicate blossoms.",
     description: "As clear and invigorating as morning dew, Crystal Bloom pairs crisp fruit notes with airy white flowers for everyday elegance.",
     notes: {
@@ -183,7 +183,7 @@ export const PRODUCTS = [
     reviewsCount: 81,
     isBestSeller: false,
     isNew: false,
-    image: "/brand/night-pulse.jpg",[cite: 7]
+    image: "/brand/night-pulse.jpeg",
     shortDescription: "An intoxicating evening scent filled with leather, spice, and dark woods.",
     description: "Crafted for nighttime occasions, Night Pulse releases warm spices, rich leather, and dark woods that mesmerize until dawn.",
     notes: {
@@ -205,7 +205,7 @@ export const PRODUCTS = [
     reviewsCount: 76,
     isBestSeller: true,
     isNew: false,
-    image: "/brand/imperial-code.jpg",[cite: 7]
+    image: "/brand/imperial-code.jpeg",
     shortDescription: "The pinnacle of luxury featuring majestic agarwood and dark spices.",
     description: "Imperial Code is an authoritative scent built around premium oud, smoky resins, and rare eastern spices for true fragrance connoisseurs.",
     notes: {
@@ -227,7 +227,7 @@ export const PRODUCTS = [
     reviewsCount: 42,
     isBestSeller: false,
     isNew: false,
-    image: "/brand/pure-one.jpg",[cite: 7]
+    image: "/brand/pure-one.jpeg",
     shortDescription: "A minimalist, soothing unisex fragrance centered on clean musk and tea.",
     description: "Pure One brings harmony and serenity with subtle white tea, soft citrus, and transparent musk. Light, versatile, and refined.",
     notes: {
@@ -249,7 +249,7 @@ export const PRODUCTS = [
     reviewsCount: 64,
     isBestSeller: false,
     isNew: true,
-    image: "/brand/wild-signature.jpg",[cite: 7]
+    image: "/brand/wild-signature.jpeg",
     shortDescription: "An untamed woody aroma with warm amber and earthy vetiver.",
     description: "Wild Signature leaves a memorable impression through raw cedarwood, smoky vetiver, and spicy pink pepper.",
     notes: {
