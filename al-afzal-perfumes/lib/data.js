@@ -3,8 +3,8 @@
 export const BRAND_INFO = {
   name: "Al Afzal Perfumes",
   tagline: "Luxury Fragrance Collection",
-  whatsappNumber: "03026082823", // Format without spaces or dashes for direct links
-  whatsappDisplay: "0302-6082823",[cite: 7]
+  whatsappNumber: "03026082823",
+  whatsappDisplay: "0302-6082823",
   instagram: "https://instagram.com/alafzalperfumes",
   facebook: "https://facebook.com/alafzalperfumes",
 };
