@@ -1,33 +1,61 @@
 "use client";
 
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState } from 'react';
+
+// Types for clarity (optional)
+// type CartItem = { id: string; name: string; price: number; quantity: number; image: string; volume?: string; };
 
 const StoreContext = createContext(null);
 
 export function StoreProvider({ children }) {
+  // ----- Cart State -----
   const [cart, setCart] = useState([]);
+  const [isCartOpen, setIsCartOpen] = useState(false);
+
+  // ----- Wishlist -----
   const [wishlist, setWishlist] = useState(new Set());
-  const [cartOpen, setCartOpen] = useState(false);
+
+  // ----- UI toggles (kept for compatibility) -----
+  const [cartOpen, setCartOpen] = useState(false); // legacy, not used now
   const [searchOpen, setSearchOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const addToCart = (p, qty = 1) => {
+  // ----- Cart helpers -----
+  const addToCart = (product, qty = 1) => {
     setCart((prev) => {
-      const found = prev.find((i) => i.id === p.id);
-      if (found) return prev.map((i) => (i.id === p.id ? { ...i, qty: i.qty + qty } : i));
-      return [...prev, { ...p, qty }];
+      const existing = prev.find((i) => i.id === product.id);
+      if (existing) {
+        return prev.map((i) =>
+          i.id === product.id ? { ...i, quantity: i.quantity + qty } : i
+        );
+      }
+      // store minimal needed fields for checkout
+      const item = {
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        quantity: qty,
+        image: product.image,
+        volume: product.volume,
+      };
+      return [...prev, item];
     });
-    setCartOpen(true);
+    setIsCartOpen(true);
   };
 
-  const changeQty = (id, delta) => {
+  const removeFromCart = (id) => {
+    setCart((prev) => prev.filter((i) => i.id !== id));
+  };
+
+  const updateQuantity = (id, newQty) => {
     setCart((prev) =>
-      prev.map((i) => (i.id === id ? { ...i, qty: Math.max(1, i.qty + delta) } : i)).filter((i) => i.qty > 0)
+      prev.map((i) => (i.id === id ? { ...i, quantity: Math.max(1, newQty) } : i))
     );
   };
 
-  const removeItem = (id) => setCart((prev) => prev.filter((i) => i.id !== id));
+  const cartTotal = cart.reduce((sum, i) => sum + i.price * i.quantity, 0);
 
+  // ----- Wishlist helper -----
   const toggleWish = (id) => {
     setWishlist((prev) => {
       const next = new Set(prev);
@@ -37,12 +65,26 @@ export function StoreProvider({ children }) {
   };
 
   const value = {
-    cart, addToCart, changeQty, removeItem,
-    wishlist, toggleWish,
-    cartOpen, setCartOpen,
-    searchOpen, setSearchOpen,
-    menuOpen, setMenuOpen,
-    cartCount: cart.reduce((s, i) => s + i.qty, 0),
+    // cart related
+    cart,
+    addToCart,
+    removeFromCart,
+    updateQuantity,
+    cartTotal,
+    isCartOpen,
+    setIsCartOpen,
+    // wishlist
+    wishlist,
+    toggleWish,
+    // legacy UI toggles (kept for other components)
+    cartOpen,
+    setCartOpen,
+    searchOpen,
+    setSearchOpen,
+    menuOpen,
+    setMenuOpen,
+    // derived counts
+    cartCount: cart.reduce((s, i) => s + i.quantity, 0),
   };
 
   return <StoreContext.Provider value={value}>{children}</StoreContext.Provider>;
