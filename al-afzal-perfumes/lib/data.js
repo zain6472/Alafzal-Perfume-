@@ -262,6 +262,13 @@ export const PRODUCTS = [
   }
 ];
 
+export function getRelated(slug, limit = 3) {
+  const product = PRODUCTS.find(p => p.slug === slug);
+  if (!product) return [];
+  const related = PRODUCTS.filter(p => p.category === product.category && p.slug !== slug);
+  return related.slice(0, limit);
+}
+
 export const TESTIMONIALS = [
   {
     id: 1,
